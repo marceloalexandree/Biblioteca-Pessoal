@@ -20,3 +20,10 @@ CREATE TABLE IF NOT EXISTS Autores (
     biografia VARCHAR(1000),
     data_nascimento DATE
 );
+
+CREATE TABLE IF NOT EXISTS Editoras (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    endereco VARCHAR(1000),
+    telefone VARCHAR(15)
+);
