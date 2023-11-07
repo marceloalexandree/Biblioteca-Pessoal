@@ -13,3 +13,10 @@ CREATE TABLE IF NOT EXISTS livros (
     autor VARCHAR(255) NOT NULL,
     dataPublicacao DATE NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS Autores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    biografia VARCHAR(1000),
+    data_nascimento DATE
+);
