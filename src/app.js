@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const livroRoutes = require('./routes/livroRoutes');
+const autorRoutes = require('./routes/autorRoutes');
+const editoraRoutes = require('./routes/editoraRoutes');
 
 const app = express();
 const PORT = 3000;
