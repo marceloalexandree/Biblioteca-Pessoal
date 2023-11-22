@@ -40,7 +40,20 @@
         <form id="autorForm">
             <h3>Adicionar/Atualizar Autor</h3>
             <input type="hidden" id="id_autor">
-            <input type="text" id="nome" placeholder="Nome" required>
+            <div>
+                <label for="autor">Autor:</label>
+                <select id="autor" required>
+                  <option value="">Selecione um autor</option>
+                  <!-- Opções de autores serão adicionadas aqui -->
+                </select>
+            </div>
+            <div>
+                <label for="editora">Editora:</label>
+                <select id="editora" required>
+                  <option value="">Selecione uma editora</option>
+                  <!-- Opções de editoras serão adicionadas aqui -->
+                </select>
+            </div>
             <input type="date" id="dataNascimento" placeholder="Data de Nascimento">
             <input type="text" id="biografia" placeholder="Biografia">
             <button type="submit">Salvar</button>

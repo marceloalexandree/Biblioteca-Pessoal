@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/livros', livroRoutes);
+app.use('/api/autores', autorRoutes);
+app.use('/api/editoras', editoraRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

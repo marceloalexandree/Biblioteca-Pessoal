@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS livros (
 CREATE TABLE IF NOT EXISTS Autores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    biografia VARCHAR(1000),
-    data_nascimento DATE
+    biografia text NOT NULL,
+    dataNascimento DATE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Editoras (
@@ -27,3 +27,15 @@ CREATE TABLE IF NOT EXISTS Editoras (
     endereco VARCHAR(1000),
     telefone VARCHAR(15)
 );
+
+INSERT INTO autores (nome, biografia, dataNascimento) SELECT DISTINCT autor, 'Precisa alterar na tela de cadastro', now() from livros;
+
+ALTER TABLE livros ADD id_autor INT;
+
+UPDATE livros l SET id_autor = (SELECT min(a.id) FROM autores a WHERE a.nome = l.autor);
+
+ALTER TABLE livros DROP COLUMN autor;
+
+ALTER TABLE livros MODIFY id_autor INT NOT NULL;
+
+ALTER TABLE livros ADD COLUMN id_editora INT, ADD FOREIGN KEY (id_autor) REFERENCES autores(id), ADD FOREIGN KEY (id_editora) REFERENCES editoras(id);
